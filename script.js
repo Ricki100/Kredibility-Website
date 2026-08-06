@@ -39,18 +39,14 @@ function renderFooter() {
     ["Terms", "terms.html"],
   ];
   const linkList = (items) => items.map(([label, href]) => `<a href="${pageUrl(href)}">${label}</a>`).join("");
-  const whatsapp = "https://wa.me/263772000000?text=Hi%20Kredibility%2C%20I%27d%20like%20to%20enquire%20about%20a%20loan.";
+  const whatsapp = "https://wa.me/263781325844?text=Hi%20Kredibility%2C%20I%27d%20like%20to%20enquire%20about%20a%20loan.";
 
   footer.innerHTML = `
     <div class="footer-shell">
       <div class="footer-main">
         <div class="footer-about">
           <a class="footer-brand-lockup" href="${pageUrl("index.html")}" aria-label="Kredibility Finance home">
-            <span class="footer-brand-mark">K</span>
-            <span>
-              <strong>Kredibility Finance</strong>
-              <small>Your Growth, Our Commitment.</small>
-            </span>
+            <img src="${pageUrl("assets/kredibility-logo-white.png")}" alt="Kredibility Finance" class="footer-brand-logo">
           </a>
           <p>Structured, transparent micro-credit for Zimbabwe's workforce, SMEs and economically active population.</p>
           <div class="footer-badges" aria-label="Compliance credentials">
@@ -76,8 +72,11 @@ function renderFooter() {
           <div class="footer-contact">
             <h2>Visit Us</h2>
             <address>Club Chambers, 11th Floor<br>Corner Third &amp; Nelson Mandela Ave<br>Harare, Zimbabwe</address>
-            <a href="mailto:info@kredibility.co.zw">info@kredibility.co.zw</a>
-            <a href="tel:+263242000000">+263 242 000 000</a>
+            <a href="mailto:admin@kredibilityfinance.co.zw">admin@kredibilityfinance.co.zw</a>
+            <a href="tel:+263781325844">+263 781 325 844</a>
+            <a href="tel:+263781332046">+263 781 332 046</a>
+            <a href="tel:+263781219030">+263 781 219 030</a>
+            <a href="tel:+263781246814">+263 781 246 814</a>
             <a href="${whatsapp}">WhatsApp Us</a>
           </div>
         </nav>
@@ -178,6 +177,21 @@ function onScroll() {
   }
 }
 
+// ── GA4 click tracking: WhatsApp + phone links ───────────────────────────────
+// Delegated on document so it also covers the footer, which is rendered
+// dynamically by renderFooter() after this listener is attached.
+function initTrackedLinkClicks() {
+  document.addEventListener("click", function (e) {
+    const link = e.target.closest('a[href^="https://wa.me/"], a[href^="tel:"]');
+    if (!link || typeof gtag !== "function") return;
+    const isWhatsApp = link.href.indexOf("wa.me") !== -1;
+    gtag("event", isWhatsApp ? "whatsapp_click" : "phone_click", {
+      link_url: link.href,
+      page_location: window.location.href,
+    });
+  });
+}
+
 // ── Mobile menu ──────────────────────────────────────────────────────────────
 function toggleMenu(force) {
   if (!menuButton || !menu) return;
@@ -187,10 +201,55 @@ function toggleMenu(force) {
   document.body.classList.toggle("menu-open", isOpen);
 }
 
+function initCalculators() {
+  const money = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  });
+
+  document.querySelectorAll(".calculator").forEach((calculator) => {
+    const amountInput = calculator.querySelector("[data-amount]");
+    const termInput = calculator.querySelector("[data-term]");
+    const rateInput = calculator.querySelector("[data-rate]");
+    const paymentOut = calculator.querySelector("[data-payment]");
+    const amountOut = calculator.querySelector("[data-amount-out]");
+    const termOut = calculator.querySelector("[data-term-out]");
+    const interestOut = calculator.querySelector("[data-interest-out]");
+    const totalOut = calculator.querySelector("[data-total-out]");
+
+    if (!amountInput || !termInput || !rateInput || !paymentOut) return;
+
+    const update = () => {
+      const amount = Number(amountInput.value);
+      const term = Number(termInput.value);
+      const monthlyRate = Number(rateInput.value) / 100;
+      const totalInterest = amount * monthlyRate * term;
+      const totalRepayment = amount + totalInterest;
+      const monthlyPayment = term > 0 ? totalRepayment / term : 0;
+
+      paymentOut.textContent = money.format(monthlyPayment);
+      if (amountOut) amountOut.textContent = money.format(amount);
+      if (termOut) termOut.textContent = `${term} month${term === 1 ? "" : "s"} at ${rateInput.value}%`;
+      if (interestOut) interestOut.textContent = money.format(totalInterest);
+      if (totalOut) totalOut.textContent = money.format(totalRepayment);
+    };
+
+    [amountInput, termInput, rateInput].forEach((input) => {
+      input.addEventListener("input", update);
+      input.addEventListener("change", update);
+    });
+
+    update();
+  });
+}
+
 // ── Init ─────────────────────────────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
   renderFooter();
   splitLines();
+  initCalculators();
+  initTrackedLinkClicks();
 
   // Observe reveal elements
   document.querySelectorAll(".reveal, .split-reveal").forEach((el) => {

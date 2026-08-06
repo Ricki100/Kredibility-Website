@@ -1,0 +1,18 @@
+# Environment / secrets — never commit real keys or credentials
+.env
+.env.*
+*.env
+**/secrets.json
+**/credentials.json
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+
+# Local dev
+node_modules/
+*.log
+
+# Working archives — not needed in the deployed site
+*.zip
