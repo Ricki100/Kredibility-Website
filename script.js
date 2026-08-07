@@ -19,24 +19,24 @@ function renderFooter() {
   footer.id = footer.id || "site-footer";
 
   const products = [
-    ["Payroll Loans", "product-payroll-loans.html"],
-    ["Private Sector Loans", "product-private-sector-loans.html"],
-    ["SME Loans", "product-sme-loans.html"],
-    ["Asset-Backed Loans", "product-asset-backed-loans.html"],
-    ["Emergency & School Fees", "product-emergency-loans.html"],
+    ["Payroll Loans", "product-payroll-loans"],
+    ["Private Sector Loans", "product-private-sector-loans"],
+    ["SME Loans", "product-sme-loans"],
+    ["Asset-Backed Loans", "product-asset-backed-loans"],
+    ["Emergency & School Fees", "product-emergency-loans"],
   ];
   const company = [
-    ["About", "about.html"],
-    ["Leadership", "leadership.html"],
-    ["Governance", "governance.html"],
-    ["News", "news.html"],
+    ["About", "about"],
+    ["Leadership", "leadership"],
+    ["Governance", "governance"],
+    ["News", "news"],
   ];
   const support = [
-    ["FAQ", "faq.html"],
-    ["Apply", "apply.html"],
-    ["Contact", "contact.html"],
-    ["Privacy", "privacy-policy.html"],
-    ["Terms", "terms.html"],
+    ["FAQ", "faq"],
+    ["Apply", "apply"],
+    ["Contact", "contact"],
+    ["Privacy", "privacy-policy"],
+    ["Terms", "terms"],
   ];
   const linkList = (items) => items.map(([label, href]) => `<a href="${pageUrl(href)}">${label}</a>`).join("");
   const whatsapp = "https://wa.me/263781325844?text=Hi%20Kredibility%2C%20I%27d%20like%20to%20enquire%20about%20a%20loan.";
@@ -45,7 +45,7 @@ function renderFooter() {
     <div class="footer-shell">
       <div class="footer-main">
         <div class="footer-about">
-          <a class="footer-brand-lockup" href="${pageUrl("index.html")}" aria-label="Kredibility Finance home">
+          <a class="footer-brand-lockup" href="${pageUrl("/")}" aria-label="Kredibility Finance home">
             <img src="${pageUrl("assets/kredibility-logo-white.png")}" alt="Kredibility Finance" class="footer-brand-logo">
           </a>
           <p>Structured, transparent micro-credit for Zimbabwe's workforce, SMEs and economically active population.</p>
@@ -84,7 +84,7 @@ function renderFooter() {
 
       <div class="footer-bottom">
         <p>&copy; 2026 Kredibility Finance (Private) Limited. All rights reserved.</p>
-        <a href="${pageUrl("sitemap.html")}">Sitemap</a>
+        <a href="${pageUrl("sitemap.xml")}">Sitemap</a>
       </div>
     </div>
   `;
