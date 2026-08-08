@@ -2,7 +2,7 @@
   "use strict";
 
   const STORAGE_KEY = "kredibility_privacy_preferences";
-  const CONSENT_VERSION = "2026-08-08";
+  const CONSENT_VERSION = "2026-08-08.2";
   let preferences = readPreferences();
 
   function readPreferences() {
@@ -32,19 +32,6 @@
     window.gtag("js", new Date());
     window.gtag("config", "G-ZTBTHF0NMW", { anonymize_ip: true });
     loadScript("https://www.googletagmanager.com/gtag/js?id=G-ZTBTHF0NMW");
-
-    // Session recording is deliberately disabled on the loan-application page.
-    if (!/\/apply(?:\.html)?\/?$/.test(window.location.pathname)) {
-      (function (c, l, a, r, i, t, y) {
-        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
-        t = l.createElement(r);
-        t.async = 1;
-        t.src = "https://www.clarity.ms/tag/" + i;
-        t.dataset.consentSrc = t.src;
-        y = l.getElementsByTagName(r)[0];
-        y.parentNode.insertBefore(t, y);
-      })(window, document, "clarity", "script", "xxmk21zg6y");
-    }
   }
 
   function enableAdvertising() {
@@ -75,6 +62,23 @@
     if (preferences.advertising) enableAdvertising();
   }
 
+  function receiptId() {
+    if (window.crypto && typeof window.crypto.randomUUID === "function") return window.crypto.randomUUID();
+    return "consent-" + Date.now() + "-" + Math.random().toString(16).slice(2);
+  }
+
+  function clearCategoryCookies(category) {
+    const prefixes = category === "analytics" ? ["_ga", "_gid", "_gat", "_cl"] : ["_fbp", "_fbc"];
+    document.cookie.split(";").forEach(function (entry) {
+      const name = entry.split("=")[0].trim();
+      if (!prefixes.some((prefix) => name.indexOf(prefix) === 0)) return;
+      ["/", window.location.pathname || "/"].forEach(function (path) {
+        document.cookie = name + "=; Max-Age=0; path=" + path + "; SameSite=Lax";
+        document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=" + path;
+      });
+    });
+  }
+
   function savePreferences(analytics, advertising) {
     const previous = preferences;
     preferences = {
@@ -83,8 +87,11 @@
       analytics: Boolean(analytics),
       advertising: Boolean(advertising),
       savedAt: new Date().toISOString(),
+      receiptId: receiptId(),
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(preferences));
+    if (!preferences.analytics) clearCategoryCookies("analytics");
+    if (!preferences.advertising) clearCategoryCookies("advertising");
     if (previous && ((previous.analytics && !preferences.analytics) || (previous.advertising && !preferences.advertising))) {
       window.location.reload();
       return;
@@ -102,14 +109,14 @@
           <p>We use essential storage for your privacy choice. With your permission, we also use analytics to improve the site and advertising technology to measure campaigns. You can reject either without losing access.</p>
           <div class="privacy-preferences" data-privacy-preferences hidden>
             <label><input type="checkbox" checked disabled> Essential <span>Required to remember your choice.</span></label>
-            <label><input type="checkbox" data-consent-analytics> Analytics <span>Google Analytics and Microsoft Clarity. Clarity is disabled on the application page.</span></label>
+            <label><input type="checkbox" data-consent-analytics> Analytics <span>Google Analytics for aggregate usage and consented events.</span></label>
             <label><input type="checkbox" data-consent-advertising> Advertising <span>Meta Pixel for campaign measurement and remarketing.</span></label>
           </div>
           <p class="privacy-banner__links"><a href="cookie-policy">Cookie Policy</a> · <a href="privacy-policy">Privacy Policy</a></p>
         </div>
         <div class="privacy-banner__actions">
-          <button type="button" class="button primary" data-consent-accept>Accept all</button>
-          <button type="button" class="button ghost" data-consent-reject>Reject non-essential</button>
+          <button type="button" class="button privacy-choice-button" data-consent-reject>Reject non-essential</button>
+          <button type="button" class="button privacy-choice-button" data-consent-accept>Accept all</button>
           <button type="button" class="privacy-text-button" data-consent-customise>Customise</button>
           <button type="button" class="button ghost" data-consent-save hidden>Save choices</button>
         </div>
@@ -130,7 +137,7 @@
       panel.hidden = true;
       save.hidden = true;
       banner.hidden = false;
-      banner.querySelector("[data-consent-accept]").focus();
+      banner.querySelector("[data-consent-reject]").focus();
     }
 
     banner.querySelector("[data-consent-accept]").addEventListener("click", () => { savePreferences(true, true); close(); });
