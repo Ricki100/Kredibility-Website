@@ -1,34 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Microsoft Clarity -->
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "xxmk21zg6y");
-</script>
-<!-- End Microsoft Clarity -->
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1009230548348507');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1009230548348507&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-  <meta charset="utf-8">
+<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Contact Kredibility Finance | Harare Office | Apply for a Loan Zimbabwe</title>
   <meta name="description" content="Contact Kredibility Finance at Club Chambers, Harare, email the credit team or start your loan application online.">
   <link rel="canonical" href="https://www.kredibilityfinance.co.zw/contact">
@@ -37,17 +12,9 @@ src="https://www.facebook.com/tr?id=1009230548348507&ev=PageView&noscript=1"
   <meta property="og:image" content="assets/kredibility-logo-photo.jpeg">
   <meta name="theme-color" content="#B5135A">
   <link rel="stylesheet" href="styles.css">
+  <script src="consent-manager.js" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FinancialService","name":"Kredibility Finance (Private) Limited","alternateName":"Kredibility Microfinance","url":"https://www.kredibilityfinance.co.zw","logo":"https://www.kredibilityfinance.co.zw/assets/kredibility-logo-magenta.jpeg","description":"RBZ-licensed microfinance institution in Zimbabwe offering payroll-backed personal loans, SME financing, emergency loans and asset-backed credit.","address":{"@type":"PostalAddress","streetAddress":"Club Chambers, 11th Floor, Corner Third and Nelson Mandela Avenue","addressLocality":"Harare","addressCountry":"ZW"},"telephone":"+263781325844","email":"admin@kredibilityfinance.co.zw","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"09:00","closes":"13:00"}],"areaServed":"Zimbabwe","regulatoryStatus":"Reserve Bank of Zimbabwe Licensed Microfinance Institution"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Kredibility Finance (Private) Limited","url":"https://www.kredibilityfinance.co.zw","telephone":"+263781325844","email":"admin@kredibilityfinance.co.zw","address":{"@type":"PostalAddress","streetAddress":"Club Chambers, 11th Floor, Corner Third and Nelson Mandela Avenue","addressLocality":"Harare","addressCountry":"ZW"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"09:00","closes":"13:00"}],"geo":{"@type":"GeoCoordinates","latitude":"-17.831335","longitude":"31.038032"}}</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTBTHF0NMW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-ZTBTHF0NMW');
-</script>
 </head><body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" data-header>
@@ -107,24 +74,22 @@ src="https://www.facebook.com/tr?id=1009230548348507&ev=PageView&noscript=1"
     <div class="contact-form-wrap">
       <h2 class="reveal">Send an enquiry</h2>
       <p class="reveal" style="opacity:0.7;margin-bottom:2rem">For a full loan application, use the <a class="inline-link" href="apply">dedicated apply page</a>.</p>
-      <form class="contact-form reveal" action="thank-you" method="post">
-        <label>Full name <input name="name" required autocomplete="name"></label>
-        <label>Phone or WhatsApp <input name="phone" required autocomplete="tel"></label>
-        <label>Email <input name="email" type="email" autocomplete="email"></label>
-        <label>Loan type (optional)
-          <select name="loan-type">
-            <option value="">Select if relevant</option>
-            <option>Payroll-Backed Loan</option>
-            <option>Private Sector Loan</option>
-            <option>SME Loan</option>
-            <option>Asset-Based Loan</option>
-            <option>Emergency or School Fees</option>
-            <option>General Enquiry</option>
-            <option>Partnership</option>
-          </select>
+      <form class="contact-form reveal" id="contact-enquiry-form">
+        <input type="hidden" name="access_key" value="c2c6d596-dfb1-4b05-992a-120b590616f5">
+        <input type="hidden" name="subject" value="New Website Enquiry — Kredibility Finance">
+        <input type="hidden" name="from_name" value="Kredibility Finance Website">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <label>Full name <input name="name" required maxlength="120" autocomplete="name"></label>
+        <label>Phone or WhatsApp <input name="phone" required maxlength="20" autocomplete="tel"></label>
+        <label>Email <input name="email" type="email" maxlength="160" autocomplete="email"></label>
+        <label>Loan type
+          <select name="loan-type"><option value="">Select one</option><option>Payroll-Backed Loan</option><option>Private Sector Employee Loan</option><option>SME Loan</option><option>Asset-Based Loan</option><option>Emergency or School Fees Loan</option></select>
         </label>
-        <label class="wide">Message <textarea name="message" rows="4" required placeholder="How can we help you?"></textarea></label>
-        <button class="button primary" type="submit">Send Enquiry</button>
+        <label class="wide">Message <textarea name="message" rows="4" maxlength="800" required placeholder="How can we help? Do not include national ID, bank or document numbers."></textarea></label>
+        <label class="consent wide"><input name="enquiry-processing-consent" type="checkbox" value="Yes" required> I request Kredibility Finance to process this enquiry and contact me. I understand that Web3Forms and email providers may process this information outside Zimbabwe, as explained in the <a href="privacy-policy">Privacy Policy</a>.</label>
+        <input type="hidden" name="privacy-notice-version" value="2026-08-08">
+        <button class="button primary wide" type="submit" data-contact-submit>Send Enquiry</button>
+        <p class="form-note wide" data-contact-status aria-live="polite">Required fields are used only to respond to this enquiry.</p>
       </form>
     </div>
   </div>
@@ -178,6 +143,7 @@ src="https://www.facebook.com/tr?id=1009230548348507&ev=PageView&noscript=1"
         <a href="apply">Apply for a Loan</a>
         <a href="contact">Contact Us</a>
         <a href="privacy-policy">Privacy Policy</a>
+        <a href="cookie-policy">Cookie Policy</a>
         <a href="terms">Terms &amp; Conditions</a>
       </div>
       <div class="footer-col">
@@ -197,5 +163,6 @@ src="https://www.facebook.com/tr?id=1009230548348507&ev=PageView&noscript=1"
   <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.552 4.116 1.516 5.843L0 24l6.335-1.493A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.655-.51-5.18-1.396l-.371-.22-3.762.887.924-3.656-.242-.381A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
 </a>
 <script src="script.js" defer></script>
+<script src="contact-form.js" defer></script>
 </body>
 </html>

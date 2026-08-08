@@ -1,34 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Microsoft Clarity -->
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "xxmk21zg6y");
-</script>
-<!-- End Microsoft Clarity -->
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1009230548348507');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1009230548348507&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-  <meta charset="utf-8">
+<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Apply for a Loan Online | Kredibility Finance Zimbabwe</title>
   <meta name="description" content="Apply for a payroll, SME, emergency or asset-backed loan online. RBZ-licensed. Fast approval. No hidden fees. Start your Kredibility Finance application now.">
   <link rel="canonical" href="https://www.kredibilityfinance.co.zw/apply">
@@ -37,16 +12,8 @@ src="https://www.facebook.com/tr?id=1009230548348507&ev=PageView&noscript=1"
   <meta property="og:image" content="assets/kredibility-logo-photo.jpeg">
   <meta name="theme-color" content="#B5135A">
   <link rel="stylesheet" href="styles.css">
+  <script src="consent-manager.js" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FinancialService","name":"Kredibility Finance (Private) Limited","alternateName":"Kredibility Microfinance","url":"https://www.kredibilityfinance.co.zw","logo":"https://www.kredibilityfinance.co.zw/assets/kredibility-logo-magenta.jpeg","description":"RBZ-licensed microfinance institution in Zimbabwe offering payroll-backed personal loans, SME financing, emergency loans and asset-backed credit.","address":{"@type":"PostalAddress","streetAddress":"Club Chambers, 11th Floor, Corner Third and Nelson Mandela Avenue","addressLocality":"Harare","addressCountry":"ZW"},"telephone":"+263781325844","email":"admin@kredibilityfinance.co.zw","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"09:00","closes":"13:00"}],"areaServed":"Zimbabwe","regulatoryStatus":"Reserve Bank of Zimbabwe Licensed Microfinance Institution"}</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTBTHF0NMW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-ZTBTHF0NMW');
-</script>
 </head><body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" data-header>
@@ -97,74 +64,42 @@ src="https://www.facebook.com/tr?id=1009230548348507&ev=PageView&noscript=1"
       </div>
     </div>
     <form class="application-form reveal" id="loan-application-form">
-      <!-- Web3Forms configuration -->
       <input type="hidden" name="access_key" value="c2c6d596-dfb1-4b05-992a-120b590616f5">
-      <input type="hidden" name="subject" value="New Loan Application — Kredibility Finance">
+      <input type="hidden" name="subject" value="New Initial Loan Application — Kredibility Finance">
       <input type="hidden" name="from_name" value="Kredibility Finance Website">
-      <!-- Honeypot spam trap -->
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
-      <label>Full name <input name="name" autocomplete="name" required placeholder="e.g. Tendai Moyo"></label>
-      <label>National ID number <input name="national-id" required placeholder="e.g. 63-123456 A 25"></label>
-      <label>Phone or WhatsApp <input name="phone" autocomplete="tel" required inputmode="tel" placeholder="+263 78 000 0000" data-phone></label>
-      <label>Email address <input name="email" type="email" autocomplete="email" placeholder="your@email.com"></label>
-      <label>Employer or business name <input name="employer" placeholder="Company or business name"></label>
-      <label>Monthly income (USD) <input name="monthly-income" inputmode="decimal" placeholder="e.g. $750.00" data-currency></label>
+      <p class="form-note wide"><strong>Initial application only.</strong> Do not enter a national ID, bank details or document numbers here. A credit officer will request verification documents through an approved secure process if your application proceeds.</p>
+      <label>Full name <input name="name" autocomplete="name" required maxlength="120" placeholder="e.g. Tendai Moyo"></label>
+      <label>Phone or WhatsApp <input name="phone" autocomplete="tel" required inputmode="tel" maxlength="20" placeholder="+263 78 000 0000" data-phone></label>
+      <label>Email address <input name="email" type="email" autocomplete="email" maxlength="160" placeholder="your@email.com"></label>
       <label>Employment type
-        <select name="employment-type" id="employment-type" required>
+        <select name="employment-type" required>
           <option value="" disabled selected hidden>Select employment type…</option>
-          <option>Civil servant</option>
-          <option>Private sector employee</option>
-          <option>SME operator</option>
-          <option>Self-employed</option>
-          <option>Other</option>
+          <option>Civil servant</option><option>Private sector employee</option><option>SME operator</option><option>Self-employed</option><option>Other</option>
         </select>
-      </label>
-      <label id="ec-number-field" hidden>
-        EC number (Employee Code)
-        <input name="ec-number" id="ec-number-input" placeholder="e.g. EC123456">
-        <span class="field-hint">Your EC number and ID number are what confirm SSB eligibility.</span>
       </label>
       <label>Loan type required
-        <select name="loan-type" id="loan-type" required>
+        <select name="loan-type" required>
           <option value="" disabled selected hidden>Select loan type…</option>
-          <option>Payroll-Backed Loan</option>
-          <option>Private Sector Employee Loan</option>
-          <option>SME &amp; Micro-Enterprise Loan</option>
-          <option>Asset-Based Micro-Loan</option>
-          <option>Emergency or School Fees Loan</option>
+          <option>Payroll-Backed Loan</option><option>Private Sector Employee Loan</option><option>SME &amp; Micro-Enterprise Loan</option><option>Asset-Based Micro-Loan</option><option>Emergency or School Fees Loan</option>
         </select>
       </label>
-      <label class="wide" id="collateral-field" hidden>
-        Collateral type
-        <select name="collateral-type" id="collateral-type">
-          <option value="" disabled selected hidden>Select collateral type…</option>
-          <option>Motor vehicle</option>
-          <option>Stand or house</option>
-          <option>Household assets</option>
-          <option>Other</option>
-        </select>
-        <span class="field-hint">Collateral should be valued at roughly 3&times; the loan amount.</span>
-      </label>
-      <label>Amount requested (USD) <input name="requested-amount" inputmode="decimal" required placeholder="e.g. $500.00" data-currency></label>
+      <label>Amount requested (USD) <input name="requested-amount" inputmode="decimal" required maxlength="20" placeholder="e.g. $500.00" data-currency></label>
       <label>Preferred term
-        <select name="term">
-          <option>3 months</option>
-          <option>6 months</option>
-          <option>12 months</option>
-          <option>18 months</option>
-          <option>24 months</option>
-        </select>
+        <select name="term"><option>3 months</option><option>6 months</option><option>12 months</option><option>18 months</option><option>24 months</option></select>
       </label>
-      <label class="wide">Purpose (optional) <textarea name="purpose" rows="3" placeholder="Briefly describe what the loan is for"></textarea></label>
-      <div class="form-alert wide" id="requirements-panel" aria-live="polite"></div>
+      <label class="wide">Purpose (optional) <textarea name="purpose" rows="3" maxlength="500" placeholder="Briefly describe the purpose. Do not include ID, account or document numbers."></textarea></label>
+      <label class="consent wide"><input name="adult-confirmation" type="checkbox" value="Confirmed" required> I confirm that I am at least 18 years old.</label>
       <label class="consent wide">
-        <input name="consent" type="checkbox" value="Yes" required id="consent-checkbox">
-        I consent to Kredibility Finance contacting me about my application, conducting an affordability assessment, and using my information in accordance with the <a href="privacy-policy">Privacy Policy</a>. I understand this consent is recorded.
+        <input name="application-processing-consent" type="checkbox" value="Yes" required id="consent-checkbox">
+        I request Kredibility Finance to process this initial application and contact me. I understand that Web3Forms and email providers may process this information outside Zimbabwe, as explained in the <a href="privacy-policy">Privacy Policy</a>.
       </label>
+      <label class="consent wide"><input name="marketing-consent" type="checkbox" value="Yes"> Optional: I agree to receive Kredibility product information by phone, email or WhatsApp. I can withdraw this choice at any time.</label>
       <input type="hidden" name="consent-recorded" id="consent-recorded" value="">
-      <button class="button primary wide" type="submit" data-submit-button>Submit My Application</button>
-      <p class="form-note">By submitting you agree to our <a href="privacy-policy">Privacy Policy</a> and <a href="terms">Terms &amp; Conditions</a>.</p>
+      <input type="hidden" name="privacy-notice-version" value="2026-08-08">
+      <button class="button primary wide" type="submit" data-submit-button>Submit Initial Application</button>
+      <p class="form-note">Read our <a href="privacy-policy">Privacy Policy</a>, <a href="cookie-policy">Cookie Policy</a> and <a href="terms">Terms &amp; Conditions</a>.</p>
     </form>
   </div>
 </section>
@@ -232,6 +167,7 @@ src="https://www.facebook.com/tr?id=1009230548348507&ev=PageView&noscript=1"
         <a href="apply">Apply for a Loan</a>
         <a href="contact">Contact Us</a>
         <a href="privacy-policy">Privacy Policy</a>
+        <a href="cookie-policy">Cookie Policy</a>
         <a href="terms">Terms &amp; Conditions</a>
       </div>
       <div class="footer-col">

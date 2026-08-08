@@ -36,6 +36,7 @@ function renderFooter() {
     ["Apply", "apply"],
     ["Contact", "contact"],
     ["Privacy", "privacy-policy"],
+    ["Cookies", "cookie-policy"],
     ["Terms", "terms"],
   ];
   const linkList = (items) => items.map(([label, href]) => `<a href="${pageUrl(href)}">${label}</a>`).join("");
