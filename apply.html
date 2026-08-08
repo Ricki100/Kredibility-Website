@@ -90,12 +90,12 @@
         <select name="term"><option>3 months</option><option>6 months</option><option>12 months</option><option>18 months</option><option>24 months</option></select>
       </label>
       <label class="wide">Purpose (optional) <textarea name="purpose" rows="3" maxlength="500" placeholder="Briefly describe the purpose. Do not include ID, account or document numbers."></textarea></label>
-      <label class="consent wide"><input name="adult-confirmation" type="checkbox" value="Confirmed" required> I confirm that I am at least 18 years old.</label>
+      <label class="consent wide"><input name="adult-confirmation" type="checkbox" value="Confirmed" required><span>I confirm that I am at least 18 years old.</span></label>
       <label class="consent wide">
         <input name="application-processing-consent" type="checkbox" value="Yes" required id="consent-checkbox">
-        I request Kredibility Finance to process this initial application and contact me. I understand that Web3Forms and email providers may process this information outside Zimbabwe, as explained in the <a href="privacy-policy">Privacy Policy</a>.
+        <span>I request Kredibility Finance to process this initial application and contact me. I understand that Web3Forms and email providers may process this information outside Zimbabwe, as explained in the <a href="privacy-policy">Privacy Policy</a>.</span>
       </label>
-      <label class="consent wide"><input name="marketing-consent" type="checkbox" value="Yes"> Optional: I agree to receive Kredibility product information by phone, email or WhatsApp. I can withdraw this choice at any time.</label>
+      <label class="consent wide"><input name="marketing-consent" type="checkbox" value="Yes"><span>Optional: I agree to receive Kredibility product information by phone, email or WhatsApp. I can withdraw this choice at any time.</span></label>
       <input type="hidden" name="consent-recorded" id="consent-recorded" value="">
       <input type="hidden" name="privacy-notice-version" value="2026-08-08">
       <button class="button primary wide" type="submit" data-submit-button>Submit Initial Application</button>

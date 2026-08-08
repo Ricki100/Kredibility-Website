@@ -3534,3 +3534,28 @@ p.field-hint {
   .privacy-banner__actions { max-width: none; }
   .privacy-banner__actions .button { flex: 1 1 145px; }
 }
+
+/* Keep consent checkboxes aligned with their complete label text. */
+.apply-layout .application-form label.consent,
+.contact-form label.consent {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  align-items: start;
+  column-gap: 0.75rem !important;
+  row-gap: 0;
+}
+.apply-layout .application-form label.consent input[type="checkbox"],
+.contact-form label.consent input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  margin: 0.1rem 0 0;
+  padding: 0;
+  accent-color: var(--magenta);
+}
+.application-form label.consent > span,
+.contact-form label.consent > span {
+  min-width: 0;
+  line-height: 1.5;
+}
