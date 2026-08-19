@@ -3,6 +3,7 @@
   --nurse-wine-dark: #76102d;
   --nurse-ink: #171517;
   --nurse-cream: #fffaf7;
+  --campaign-hero: url("assets/nurse-loans-hero.png");
   background: var(--nurse-cream);
 }
 
@@ -13,7 +14,7 @@
   align-items: center;
   overflow: hidden;
   color: #fff;
-  background: #191416 url("assets/nurse-loans-hero.png") center center / cover no-repeat;
+  background: #191416 var(--campaign-hero) center center / cover no-repeat;
 }
 
 .nurse-hero::before {
