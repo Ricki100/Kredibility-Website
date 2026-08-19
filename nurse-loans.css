@@ -1,0 +1,177 @@
+.nurse-landing {
+  --nurse-wine: #a91842;
+  --nurse-wine-dark: #76102d;
+  --nurse-ink: #171517;
+  --nurse-cream: #fffaf7;
+  background: var(--nurse-cream);
+}
+
+.nurse-hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+  background: #191416 url("assets/nurse-loans-hero.png") center center / cover no-repeat;
+}
+
+.nurse-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(17,12,14,.94) 0%, rgba(17,12,14,.83) 34%, rgba(17,12,14,.34) 58%, rgba(17,12,14,.08) 100%);
+}
+
+.nurse-hero__copy {
+  position: relative;
+  z-index: 1;
+  width: min(760px, 58vw);
+  padding: calc(var(--header-h) + clamp(4rem, 8vw, 8rem)) 3.2vw clamp(4rem, 7vw, 7rem);
+}
+
+.nurse-kicker {
+  margin: 0 0 1rem;
+  color: var(--nurse-wine);
+  font-size: .78rem;
+  font-weight: 850;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.nurse-hero h1 {
+  max-width: 12ch;
+  margin: 0;
+  font-size: clamp(3rem, 6.2vw, 7rem);
+  line-height: .94;
+  letter-spacing: -.055em;
+}
+
+.nurse-hero__lead {
+  max-width: 650px;
+  margin: 1.75rem 0;
+  color: rgba(255,255,255,.84);
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+}
+
+.nurse-button {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  padding: .9rem 1.35rem;
+  color: #fff;
+  background: var(--nurse-wine);
+  border: 2px solid var(--nurse-wine);
+  border-radius: 2px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.nurse-button:hover { background: var(--nurse-wine-dark); border-color: var(--nurse-wine-dark); transform: translateY(-2px); }
+.nurse-button:focus-visible, .nurse-lead-form input:focus-visible, summary:focus-visible { outline: 3px solid #e8a6be; outline-offset: 3px; }
+.nurse-button:disabled { opacity: .65; cursor: wait; transform: none; }
+
+.nurse-trust { max-width: 620px; margin: 1.2rem 0 0; color: rgba(255,255,255,.72); font-size: .88rem; }
+
+.nurse-benefits, .nurse-form-section, .nurse-steps, .nurse-faq {
+  padding: clamp(4.5rem, 8vw, 8rem) clamp(1.25rem, 5vw, 5rem);
+}
+
+.nurse-section-heading { max-width: 760px; margin-bottom: 2.5rem; }
+.nurse-section-heading h2, .nurse-form-copy h2, .nurse-final-cta h2 { margin: 0; font-size: clamp(2.1rem, 4vw, 4.5rem); line-height: 1; letter-spacing: -.04em; }
+
+.nurse-benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(23,21,23,.13); border: 1px solid rgba(23,21,23,.13); }
+.nurse-benefit-grid article { min-height: 270px; padding: clamp(1.5rem, 3vw, 2.8rem); background: #fff; }
+.nurse-benefit-grid span { color: var(--nurse-wine); font-size: .82rem; font-weight: 850; letter-spacing: .12em; }
+.nurse-benefit-grid h3 { margin: 3.5rem 0 .6rem; font-size: 1.45rem; }
+.nurse-benefit-grid p { margin: 0; color: #62595c; }
+
+.nurse-form-section {
+  display: grid;
+  grid-template-columns: minmax(260px, .8fr) minmax(460px, 1.2fr);
+  gap: clamp(2.5rem, 7vw, 8rem);
+  color: #fff;
+  background: var(--nurse-ink);
+}
+
+.nurse-form-copy { align-self: start; position: sticky; top: 2rem; }
+.nurse-form-copy p { color: #d1c7ca; }
+.nurse-form-copy ul { margin: 2rem 0 0; padding: 0; list-style: none; }
+.nurse-form-copy li { padding: .8rem 0 .8rem 1.8rem; border-top: 1px solid rgba(255,255,255,.15); position: relative; }
+.nurse-form-copy li::before { content: "✓"; position: absolute; left: 0; color: #f45e98; font-weight: 900; }
+
+.nurse-lead-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.15rem; padding: clamp(1.4rem, 3vw, 2.5rem); color: var(--nurse-ink); background: #fff; box-shadow: 0 30px 80px rgba(0,0,0,.25); }
+.nurse-lead-form label { display: grid; gap: .45rem; font-size: .88rem; font-weight: 750; }
+.nurse-lead-form label:nth-of-type(1), .nurse-lead-form label:nth-of-type(4), .nurse-lead-form .nurse-consent, .nurse-submit, .nurse-form-status, .nurse-form-note { grid-column: 1 / -1; }
+.nurse-lead-form input:not([type="checkbox"]) { width: 100%; min-height: 50px; padding: .75rem .85rem; border: 1px solid #bdb5b8; border-radius: 0; background: #fff; }
+.nurse-lead-form input:not([type="checkbox"]):focus { border-color: var(--nurse-wine); }
+.nurse-consent { grid-template-columns: 22px 1fr !important; align-items: start; gap: .75rem !important; padding-top: .6rem; font-weight: 450 !important; line-height: 1.48; }
+.nurse-consent input { width: 20px; height: 20px; margin: .1rem 0 0; accent-color: var(--nurse-wine); }
+.nurse-consent a, .nurse-form-note a { color: var(--nurse-wine); text-decoration: underline; }
+.nurse-form-status { min-height: 1.5rem; margin: 0; font-weight: 700; }
+.nurse-form-status.is-error { color: #9f1737; }
+.nurse-form-note { margin: 0; color: #6e6266; font-size: .8rem; }
+.nurse-honeypot { position: absolute !important; left: -9999px !important; }
+
+.nurse-steps { background: #f3e9ed; }
+.nurse-steps ol { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin: 0; padding: 0; list-style: none; counter-reset: steps; }
+.nurse-steps li { counter-increment: steps; display: grid; gap: .55rem; padding-top: 1.2rem; border-top: 3px solid var(--nurse-wine); }
+.nurse-steps li::before { content: "0" counter(steps); color: var(--nurse-wine); font-weight: 850; }
+.nurse-steps strong { font-size: 1.25rem; }
+.nurse-steps span { color: #5c5356; }
+
+.nurse-faq > div:last-child { max-width: 900px; }
+.nurse-faq details { border-top: 1px solid rgba(23,21,23,.16); }
+.nurse-faq details:last-child { border-bottom: 1px solid rgba(23,21,23,.16); }
+.nurse-faq summary { padding: 1.3rem 2.5rem 1.3rem 0; font-weight: 800; cursor: pointer; }
+.nurse-faq details p { max-width: 760px; margin: 0 0 1.4rem; color: #5c5356; }
+
+.nurse-final-cta { padding: clamp(4.5rem, 8vw, 8rem) 1.25rem; color: #fff; background: var(--nurse-wine); text-align: center; }
+.nurse-final-cta .nurse-kicker { color: #fff; opacity: .78; }
+.nurse-final-cta p:not(.nurse-kicker) { margin: 1rem auto 1.7rem; font-size: 1.1rem; }
+.nurse-button--light { color: var(--nurse-wine); background: #fff; border-color: #fff; }
+.nurse-button--light:hover { color: #fff; background: var(--nurse-wine-dark); border-color: #fff; }
+
+.campaign-footer { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 2rem; padding: 2rem clamp(1.25rem, 5vw, 5rem); color: #fff; background: var(--nurse-ink); font-size: .85rem; }
+.campaign-footer div { display: grid; }
+.campaign-footer div span { opacity: .65; }
+.campaign-footer nav { display: flex; gap: 1rem; }
+.campaign-footer nav a { text-decoration: underline; }
+.campaign-footer p { margin: 0; text-align: right; opacity: .7; }
+
+@media (max-width: 900px) {
+  .nurse-hero { min-height: 92svh; background-position: 62% center; }
+  .nurse-hero::before { background: linear-gradient(90deg, rgba(17,12,14,.92) 0%, rgba(17,12,14,.72) 58%, rgba(17,12,14,.2) 100%); }
+  .nurse-hero__copy { width: min(680px, 78vw); }
+  .nurse-benefit-grid { grid-template-columns: 1fr; }
+  .nurse-benefit-grid article { min-height: auto; }
+  .nurse-benefit-grid h3 { margin-top: 2rem; }
+  .nurse-form-section { grid-template-columns: 1fr; }
+  .nurse-form-copy { position: static; }
+  .nurse-steps ol { grid-template-columns: 1fr 1fr; }
+  .campaign-footer { grid-template-columns: 1fr; text-align: left; }
+  .campaign-footer p { text-align: left; }
+}
+
+@media (max-width: 620px) {
+  .nurse-landing .menu-button {
+    display: flex !important;
+    top: 12px;
+    right: 1rem;
+  }
+  .nurse-hero { min-height: 100svh; background-position: 69% center; }
+  .nurse-hero::before { background: linear-gradient(180deg, rgba(17,12,14,.38) 0%, rgba(17,12,14,.46) 34%, rgba(17,12,14,.94) 77%, rgba(17,12,14,.98) 100%); }
+  .nurse-hero__copy { align-self: end; width: 100%; padding: calc(var(--header-h) + 12rem) 1.25rem 3.2rem; }
+  .nurse-hero h1 { max-width: 8ch; font-size: clamp(2.45rem, 10.8vw, 3.1rem); line-height: .98; }
+  .nurse-button { width: 100%; text-align: center; }
+  .nurse-lead-form { grid-template-columns: 1fr; }
+  .nurse-lead-form label { grid-column: 1 / -1 !important; }
+  .nurse-steps ol { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .nurse-button { transition: none; }
+}
