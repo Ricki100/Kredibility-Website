@@ -1,0 +1,38 @@
+.smartphone-landing { overflow-x: hidden; background: #fff; }
+
+.smartphone-campaign-hero { background-position: center center; }
+.smartphone-campaign-hero::before { background: linear-gradient(90deg, rgba(17,12,14,.94) 0%, rgba(17,12,14,.78) 36%, rgba(17,12,14,.2) 61%, rgba(17,12,14,.04) 100%); }
+
+.smartphone-catalogue { padding: 46px 4vw 36px; background: #f8f5f6; }
+.smartphone-catalogue .nurse-section-heading { max-width: 850px; }
+.smartphone-catalogue .nurse-section-heading > p:last-child { max-width: 670px; margin-top: 18px; color: #665b60; font-size: 1.08rem; line-height: 1.65; }
+.smartphone-grid { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: clamp(12px, 1.2vw, 22px); max-width: 1720px; margin: 24px auto 0; }
+.smartphone-card { overflow: hidden; display: flex; flex-direction: column; border: 1px solid #e2dadd; border-radius: 22px; background: #fff; box-shadow: 0 14px 36px rgba(46,19,31,.07); }
+.smartphone-card img { display: block; width: 100%; height: clamp(250px, 18vw, 330px); padding: 10px; object-fit: contain; object-position: center; background: #fff; }
+.smartphone-card > div { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: 16px 18px 18px; border-top: 1px solid #eee7ea; }
+.smartphone-card h3 { margin: 0 0 6px; font-size: 1.08rem; }
+.smartphone-card p { margin: 0 0 14px; color: #665b60; font-size: .86rem; line-height: 1.45; }
+.smartphone-card button { margin-top: auto; padding: 0; border: 0; border-bottom: 2px solid #b5135a; background: none; color: #b5135a; font: inherit; font-weight: 850; cursor: pointer; }
+.smartphone-card button:hover, .smartphone-card button:focus-visible { color: #81103f; border-color: #81103f; }
+.smartphone-catalogue-cta { display: flex; max-width: 1720px; align-items: center; justify-content: space-between; gap: 28px; margin: 20px auto 0; padding: 18px 22px; border-radius: 16px; color: #fff; background: linear-gradient(135deg, #8e1046, #b5135a); }
+.smartphone-catalogue-cta .nurse-kicker { margin-bottom: 3px; color: rgba(255,255,255,.7); }
+.smartphone-catalogue-cta h3 { margin: 0 0 3px; color: #fff; font-size: 1.18rem; }
+.smartphone-catalogue-cta p { margin: 0; color: rgba(255,255,255,.78); font-size: .9rem; }
+.smartphone-catalogue-cta .nurse-button { flex: 0 0 auto; min-height: 44px; color: #8e1046; background: #fff; border-color: #fff; }
+.smartphone-disclaimer { max-width: 900px; margin: 18px auto 0; color: #71656a; text-align: center; font-size: .82rem; line-height: 1.5; }
+.nurse-lead-form select { width: 100%; padding: 15px 14px; border: 1px solid #cfc5c9; border-radius: 8px; background: #fff; color: #2b2024; font: inherit; }
+.nurse-lead-form select:focus { outline: 3px solid rgba(181,19,90,.18); border-color: #b5135a; }
+
+@media (max-width: 980px) {
+  .smartphone-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .smartphone-card img { height: min(58vw, 430px); }
+}
+
+@media (max-width: 700px) {
+  .smartphone-campaign-hero { background-position: 64% center; }
+  .smartphone-campaign-hero::before { background: linear-gradient(180deg, rgba(17,12,14,.28) 0%, rgba(17,12,14,.4) 35%, rgba(17,12,14,.95) 76%, rgba(17,12,14,.98) 100%); }
+  .smartphone-catalogue { padding: 72px 20px; }
+  .smartphone-grid { grid-template-columns: 1fr; gap: 20px; margin-top: 36px; }
+  .smartphone-card img { height: min(112vw, 500px); }
+  .smartphone-catalogue-cta { align-items: flex-start; flex-direction: column; }
+}

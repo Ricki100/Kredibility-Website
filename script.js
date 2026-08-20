@@ -25,6 +25,7 @@ function renderFooter() {
     ["Asset-Backed Loans", "product-asset-backed-loans"],
     ["Emergency & School Fees", "product-emergency-loans"],
     ["ZiG Loans", "zig-loans"],
+    ["SSB Smartphone Loans", "smartphones"],
   ];
   const company = [
     ["About", "about"],
