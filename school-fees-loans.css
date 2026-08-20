@@ -1,0 +1,11 @@
+.school-fees-landing .nurse-lead-form select {
+  width: 100%;
+  padding: 15px 14px;
+  border: 1px solid #cfc5c9;
+  border-radius: 8px;
+  background: #fff;
+  color: #2b2024;
+  font: inherit;
+}
+.school-fees-landing .nurse-lead-form select:focus-visible { outline: 3px solid rgba(181,19,90,.18); border-color: #b5135a; }
+@media (max-width: 760px) { .school-fees-landing .nurse-hero { background-position: 56% center; } }

@@ -24,6 +24,7 @@ function renderFooter() {
     ["SME Loans", "product-sme-loans"],
     ["Asset-Backed Loans", "product-asset-backed-loans"],
     ["Emergency & School Fees", "product-emergency-loans"],
+    ["School Fees Loans", "school-fees-loans"],
     ["ZiG Loans", "zig-loans"],
     ["SSB Smartphone Loans", "smartphones"],
   ];
