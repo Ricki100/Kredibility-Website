@@ -39,6 +39,7 @@
       campaign: formData.get("campaign"),
       sourcePage: formData.get("source-page"),
       consent: formData.get("lead-processing-consent"),
+      marketingConsent: formData.get("marketing-consent") || "No",
       consentRecorded: formData.get("consent-recorded"),
       website: formData.get("botcheck") || ""
     };

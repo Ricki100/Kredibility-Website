@@ -14,6 +14,7 @@ const NURSE_LEAD_FIELDS = [
   ["campaign", "Campaign"],
   ["sourcePage", "Source Page"],
   ["consent", "Processing Consent"],
+  ["marketingConsent", "Marketing Consent"],
   ["consentRecorded", "Consent Record"],
   ["status", "Lead Status"],
   ["owner", "Assigned To"],
