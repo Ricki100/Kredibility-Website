@@ -21,7 +21,7 @@
   });
 
   function recordConsent() {
-    consentRecorded.value = "School-fees loan enquiry processing requested at " + new Date().toISOString() + "; privacy notice version 2026-08-20";
+    consentRecorded.value = "Term 3 school-fees loan enquiry processing requested at " + new Date().toISOString() + "; privacy notice version 2026-08-20";
   }
 
   consent.addEventListener("change", function () {
@@ -47,7 +47,7 @@
 
   function whatsappUrl(payload) {
     const message = [
-      "Hello Kredibility Finance, I would like to enquire about a school fees loan.",
+      "Hello Kredibility Finance, I would like to enquire about a Term 3 school fees loan.",
       "",
       "Name: " + payload.name,
       "Phone: " + payload.phone,
@@ -102,8 +102,8 @@
       }
 
       const choices = window.KredibilityConsent && window.KredibilityConsent.get();
-      if (choices && choices.advertising && typeof window.fbq === "function") window.fbq("track", "Lead", { content_name: "School Fees Loans Zimbabwe" });
-      if (choices && choices.analytics && typeof window.gtag === "function") window.gtag("event", "generate_lead", { method: "school_fees_whatsapp_enquiry" });
+      if (choices && choices.advertising && typeof window.fbq === "function") window.fbq("track", "Lead", { content_name: "Term 3 School Fees Loans Zimbabwe" });
+      if (choices && choices.analytics && typeof window.gtag === "function") window.gtag("event", "generate_lead", { method: "term_3_school_fees_whatsapp_enquiry" });
 
       status.textContent = "Details saved. Opening WhatsApp…";
       window.location.assign(whatsappUrl(payload));

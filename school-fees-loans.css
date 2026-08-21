@@ -8,4 +8,10 @@
   font: inherit;
 }
 .school-fees-landing .nurse-lead-form select:focus-visible { outline: 3px solid rgba(181,19,90,.18); border-color: #b5135a; }
-@media (max-width: 760px) { .school-fees-landing .nurse-hero { background-position: 56% center; } }
+
+.term3-campaign-hero { background-position: center center; }
+.term3-campaign-hero::before { background: linear-gradient(90deg, rgba(17,12,14,.96) 0%, rgba(17,12,14,.84) 30%, rgba(17,12,14,.42) 50%, rgba(17,12,14,.06) 70%, rgba(17,12,14,0) 100%); }
+@media (max-width: 700px) {
+  .term3-campaign-hero { background-position: 61% center; }
+  .term3-campaign-hero::before { background: linear-gradient(180deg, rgba(17,12,14,.18) 0%, rgba(17,12,14,.3) 38%, rgba(17,12,14,.92) 70%, rgba(17,12,14,.98) 100%); }
+}
