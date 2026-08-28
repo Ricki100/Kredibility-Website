@@ -32,6 +32,20 @@
     window.gtag("js", new Date());
     window.gtag("config", "G-ZTBTHF0NMW", { anonymize_ip: true });
     loadScript("https://www.googletagmanager.com/gtag/js?id=G-ZTBTHF0NMW");
+    enableClarity();
+  }
+
+  function enableClarity() {
+    if (window.clarity) return;
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      t.dataset.consentSrc = t.src;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "xxmk21zg6y");
   }
 
   function enableAdvertising() {
@@ -68,7 +82,7 @@
   }
 
   function clearCategoryCookies(category) {
-    const prefixes = category === "analytics" ? ["_ga", "_gid", "_gat", "_cl"] : ["_fbp", "_fbc"];
+    const prefixes = category === "analytics" ? ["_ga", "_gid", "_gat", "_cl", "_clck", "_clsk", "CLID", "MUID", "ANONCHK", "MR", "MC1", "SM"] : ["_fbp", "_fbc"];
     document.cookie.split(";").forEach(function (entry) {
       const name = entry.split("=")[0].trim();
       if (!prefixes.some((prefix) => name.indexOf(prefix) === 0)) return;
@@ -109,7 +123,7 @@
           <p>We use essential storage for your privacy choice. With your permission, we also use analytics to improve the site and advertising technology to measure campaigns. You can reject either without losing access.</p>
           <div class="privacy-preferences" data-privacy-preferences hidden>
             <label><input type="checkbox" checked disabled> Essential <span>Required to remember your choice.</span></label>
-            <label><input type="checkbox" data-consent-analytics> Analytics <span>Google Analytics for aggregate usage and consented events.</span></label>
+            <label><input type="checkbox" data-consent-analytics> Analytics <span>Google Analytics and Microsoft Clarity for aggregate usage, heatmaps and session behaviour.</span></label>
             <label><input type="checkbox" data-consent-advertising> Advertising <span>Meta Pixel for campaign measurement and remarketing.</span></label>
           </div>
           <p class="privacy-banner__links"><a href="cookie-policy">Cookie Policy</a> · <a href="privacy-policy">Privacy Policy</a></p>
