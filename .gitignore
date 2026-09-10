@@ -16,3 +16,6 @@ node_modules/
 
 # Working archives — not needed in the deployed site
 *.zip
+
+# Portable CMS source package; deployed files live in /admin and /assets/js
+supabase-content-cms/
