@@ -859,6 +859,53 @@ input[type="range"] {
   grid-column: 1 / -1;
 }
 
+.application-form .form-section {
+  min-width: 0;
+  margin: 0;
+  padding: 1.1rem;
+  border: 1px solid rgba(181, 19, 90, 0.18);
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.application-form .form-section legend {
+  padding: 0 0.45rem;
+  color: var(--magenta);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.application-form .form-section legend span {
+  color: rgba(22, 16, 17, 0.56);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.application-form .form-section-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem 1rem;
+}
+
+.application-form .requirements-card {
+  padding: 1rem 1.1rem;
+  border-left: 4px solid var(--magenta);
+  background: rgba(181, 19, 90, 0.08);
+}
+
+.application-form .requirements-card h3,
+.application-form .requirements-card p {
+  margin: 0;
+}
+
+.application-form .requirements-card ol {
+  margin: 0.65rem 0;
+  padding-left: 1.2rem;
+}
+
+.application-form .requirements-card li + li {
+  margin-top: 0.35rem;
+}
+
 .application-form .consent {
   grid-template-columns: auto 1fr;
   align-items: start;
@@ -2381,6 +2428,10 @@ p.field-hint {
 
 @media (max-width: 680px) {
   .apply-layout .application-form {
+    grid-template-columns: 1fr;
+  }
+
+  .application-form .form-section-grid {
     grid-template-columns: 1fr;
   }
 }

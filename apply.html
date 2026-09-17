@@ -66,41 +66,95 @@
     </div>
     <form class="application-form reveal" id="loan-application-form">
       <input type="hidden" name="access_key" value="c2c6d596-dfb1-4b05-992a-120b590616f5">
-      <input type="hidden" name="subject" value="New Initial Loan Application — Kredibility Finance">
+      <input type="hidden" name="subject" value="New WhatsApp Loan Application — Kredibility Finance">
       <input type="hidden" name="from_name" value="Kredibility Finance Website">
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
-      <p class="form-note wide"><strong>Initial application only.</strong> Do not enter a national ID, bank details or document numbers here. A credit officer will request verification documents through an approved secure process if your application proceeds.</p>
-      <label>Full name <input name="name" autocomplete="name" required maxlength="120" placeholder="e.g. Tendai Moyo"></label>
-      <label>Phone or WhatsApp <input name="phone" autocomplete="tel" required inputmode="tel" maxlength="20" placeholder="+263 78 000 0000" data-phone></label>
-      <label>Email address <input name="email" type="email" autocomplete="email" maxlength="160" placeholder="your@email.com"></label>
-      <label>Employment type
-        <select name="employment-type" required>
-          <option value="" disabled selected hidden>Select employment type…</option>
-          <option>Civil servant</option><option>Private sector employee</option><option>SME operator</option><option>Self-employed</option><option>Other</option>
-        </select>
-      </label>
-      <label>Loan type required
-        <select name="loan-type" required>
-          <option value="" disabled selected hidden>Select loan type…</option>
-          <option>Payroll-Backed Loan</option><option>Private Sector Employee Loan</option><option>SME &amp; Micro-Enterprise Loan</option><option>Asset-Based Micro-Loan</option><option>Emergency or School Fees Loan</option>
-        </select>
-      </label>
-      <label>Amount requested (USD) <input name="requested-amount" inputmode="decimal" required maxlength="20" placeholder="e.g. $500.00" data-currency></label>
-      <label>Preferred term
-        <select name="term"><option>3 months</option><option>6 months</option><option>12 months</option><option>18 months</option><option>24 months</option></select>
-      </label>
-      <label class="wide">Purpose (optional) <textarea name="purpose" rows="3" maxlength="500" data-no-sensitive placeholder="Briefly describe the purpose. Do not include ID, account or document numbers."></textarea></label>
+      <p class="form-note wide"><strong>Complete your application once.</strong> We first record it securely through Web3Forms and email, then open WhatsApp with the same details ready to send to Kredibility.</p>
+
+      <fieldset class="form-section wide">
+        <legend>Personal details</legend>
+        <div class="form-section-grid">
+          <label>Full name <input name="full-name" autocomplete="name" required maxlength="120" placeholder="e.g. Tendai Moyo"></label>
+          <label>Phone or WhatsApp number <input name="phone" autocomplete="tel" required inputmode="tel" maxlength="20" placeholder="+263 78 000 0000" data-phone></label>
+          <label class="wide">Physical home address <textarea name="home-address" autocomplete="street-address" required rows="2" maxlength="240" placeholder="House number, street, suburb and town"></textarea></label>
+          <label>Marital status
+            <select name="marital-status" id="marital-status" required>
+              <option value="" disabled selected hidden>Select status…</option>
+              <option>Single</option><option>Married</option><option>Separated</option><option>Divorced</option><option>Widowed</option>
+            </select>
+          </label>
+          <label>Years at this address <input name="years-at-address" type="number" required min="0" max="80" step="1" inputmode="numeric" placeholder="e.g. 4"></label>
+          <label>Number of dependants <input name="number-of-dependants" type="number" required min="0" max="30" step="1" inputmode="numeric" placeholder="e.g. 2"></label>
+          <label>Email address (optional) <input name="email" type="email" autocomplete="email" maxlength="160" placeholder="your@email.com"></label>
+          <label>Bank name <input name="bank-name" autocomplete="organization" required maxlength="100" placeholder="e.g. CBZ Bank"></label>
+          <label>Bank branch <input name="bank-branch" required maxlength="100" placeholder="e.g. Samora Machel branch"></label>
+          <label>Bank account number <input name="bank-account-number" required inputmode="numeric" maxlength="34" autocomplete="off" placeholder="Enter account number"></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section wide">
+        <legend>Work details</legend>
+        <div class="form-section-grid">
+          <label>Ministry / employer <input name="ministry-employer" autocomplete="organization" required maxlength="160" placeholder="e.g. Ministry of Primary and Secondary Education"></label>
+          <label>Work contact number <input name="work-contact-number" autocomplete="tel" required inputmode="tel" maxlength="20" placeholder="+263 24 …" data-phone></label>
+          <label class="wide">Work address <textarea name="work-address" required rows="2" maxlength="240" placeholder="Building, street and town"></textarea></label>
+          <label>EC number <input name="ec-number" required maxlength="40" autocomplete="off" placeholder="Enter EC number"></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section wide" id="spouse-section">
+        <legend>Spouse details <span>(complete if applicable)</span></legend>
+        <div class="form-section-grid">
+          <label>Full name <input name="spouse-full-name" autocomplete="off" maxlength="120" placeholder="Spouse's full name" data-spouse-field></label>
+          <label>Relationship <input name="spouse-relationship" maxlength="60" placeholder="e.g. Spouse" data-spouse-field></label>
+          <label>Mobile number <input name="spouse-mobile-number" inputmode="tel" maxlength="20" placeholder="+263 78 000 0000" data-phone data-spouse-field></label>
+          <label>Employer &amp; profession <input name="spouse-employer-profession" maxlength="180" placeholder="Employer and profession" data-spouse-field></label>
+          <label class="wide">Physical address <textarea name="spouse-physical-address" rows="2" maxlength="240" placeholder="Physical address" data-spouse-field></textarea></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section wide">
+        <legend>Next of kin details</legend>
+        <div class="form-section-grid">
+          <label>Full name <input name="next-of-kin-full-name" required maxlength="120" placeholder="Next of kin's full name"></label>
+          <label>Relationship <input name="next-of-kin-relationship" required maxlength="60" placeholder="e.g. Sister"></label>
+          <label>Mobile number <input name="next-of-kin-mobile-number" required inputmode="tel" maxlength="20" placeholder="+263 78 000 0000" data-phone></label>
+          <label>Employer &amp; profession <input name="next-of-kin-employer-profession" required maxlength="180" placeholder="Employer and profession"></label>
+          <label class="wide">Physical address <textarea name="next-of-kin-physical-address" required rows="2" maxlength="240" placeholder="Physical address"></textarea></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section wide">
+        <legend>Product details</legend>
+        <div class="form-section-grid">
+          <label>Loan amount (USD) <input name="loan-amount" inputmode="decimal" required maxlength="20" placeholder="e.g. $500.00" data-currency></label>
+          <label>Preferred instalment (USD) <input name="preferred-instalment" inputmode="decimal" required maxlength="20" placeholder="e.g. $100.00" data-currency></label>
+          <label>Number of months <input name="number-of-months" type="number" required min="1" max="6" step="1" inputmode="numeric" placeholder="1–6"></label>
+        </div>
+      </fieldset>
+
+      <aside class="requirements-card wide" aria-labelledby="requirements-heading">
+        <h3 id="requirements-heading">Have these clear pictures ready for WhatsApp</h3>
+        <ol>
+          <li>The information above written on a piece of paper and signed.</li>
+          <li>Your National ID.</li>
+          <li>A passport-size photo.</li>
+        </ol>
+        <p>WhatsApp opens after this form is saved. Attach the three pictures there before sending your message.</p>
+      </aside>
+
       <label class="consent wide"><input name="adult-confirmation" type="checkbox" value="Confirmed" required><span>I confirm that I am at least 18 years old.</span></label>
       <label class="consent wide">
         <input name="application-processing-consent" type="checkbox" value="Yes" required id="consent-checkbox">
-        <span>I request Kredibility Finance to process this initial application and contact me. I understand that Web3Forms and email providers may process this information outside Zimbabwe, as explained in the <a href="privacy-policy">Privacy Policy</a>.</span>
+        <span>I request Kredibility Finance to record and process this loan application, including my contact, residential, employment and bank account details, and to contact me about it. I understand that Web3Forms, email and WhatsApp may process this information outside Zimbabwe, as explained in the <a href="privacy-policy">Privacy Policy</a>.</span>
       </label>
       <label class="consent wide"><input name="marketing-consent" type="checkbox" value="Yes"><span>Optional: I agree to receive Kredibility product information by phone, email or WhatsApp. I can withdraw this choice at any time.</span></label>
       <input type="hidden" name="consent-recorded" id="consent-recorded" value="">
-      <input type="hidden" name="privacy-notice-version" value="2026-08-08">
-      <button class="button primary wide" type="submit" data-submit-button>Submit Initial Application</button>
-      <p class="form-note">Read our <a href="privacy-policy">Privacy Policy</a>, <a href="cookie-policy">Cookie Policy</a> and <a href="terms">Terms &amp; Conditions</a>. Privacy questions: <a href="mailto:admin@kredibilityfinance.co.zw">admin@kredibilityfinance.co.zw</a>.</p>
+      <input type="hidden" name="privacy-notice-version" value="2026-09-17">
+      <button class="button primary wide" type="submit" data-submit-button>Save application &amp; open WhatsApp</button>
+      <p class="form-alert wide" data-application-status role="status" aria-live="polite"></p>
+      <p class="form-note wide">Read our <a href="privacy-policy">Privacy Policy</a>, <a href="cookie-policy">Cookie Policy</a> and <a href="terms">Terms &amp; Conditions</a>. Privacy questions: <a href="mailto:admin@kredibilityfinance.co.zw">admin@kredibilityfinance.co.zw</a>.</p>
     </form>
   </div>
 </section>
