@@ -25,6 +25,8 @@
   }
 
   function enableAnalytics() {
+    // Only measure the live site, so staging and local previews don't pollute GA4/Clarity.
+    if (!/(^|\.)kredibilityfinance\.co\.zw$/.test(location.hostname)) return;
     if (window.__kredibilityAnalyticsEnabled) return;
     window.__kredibilityAnalyticsEnabled = true;
     window.dataLayer = window.dataLayer || [];
