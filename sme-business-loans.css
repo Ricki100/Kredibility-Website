@@ -1,0 +1,97 @@
+.sme-business-landing .nurse-hero {
+  /* Keep the owner in the visual right third and reserve the left side for copy. */
+  background-position: 68% center;
+}
+
+.sme-business-landing .nurse-hero__copy {
+  width: min(650px, 48vw);
+  max-width: none;
+}
+
+.sme-business-landing .nurse-hero h1 {
+  max-width: 14ch;
+  font-size: clamp(2.75rem, 4.6vw, 5.25rem);
+  line-height: .98;
+  letter-spacing: -.045em;
+}
+
+.sme-business-landing .nurse-hero__lead {
+  max-width: 34rem;
+}
+
+@media (max-width: 900px) {
+  .sme-business-landing .nurse-hero {
+    background-position: 64% center;
+  }
+
+  .sme-business-landing .nurse-hero__copy {
+    width: min(680px, 78vw);
+  }
+}
+
+@media (max-width: 620px) {
+  .sme-business-landing .nurse-hero {
+    background-position: 66% center;
+  }
+
+  .sme-business-landing .nurse-hero h1 {
+    max-width: 12ch;
+    font-size: clamp(2.4rem, 10vw, 3.25rem);
+  }
+}
+
+.sme-business-gallery {
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 5vw, 5rem);
+  background: #fff;
+}
+
+.sme-business-gallery .nurse-section-heading {
+  max-width: 44rem;
+  margin: 0 auto 2.25rem;
+  text-align: center;
+}
+
+.sme-business-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.sme-business-gallery figure {
+  margin: 0;
+  overflow: hidden;
+  background: #f7f1f3;
+}
+
+.sme-business-gallery img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.sme-business-gallery figcaption {
+  padding: 0.95rem 1rem 1.1rem;
+  color: var(--ink);
+  font-weight: 750;
+  font-size: .94rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .sme-business-gallery__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sme-business-gallery figcaption {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 520px) {
+  .sme-business-gallery__grid {
+    grid-template-columns: 1fr;
+  }
+}
