@@ -63,13 +63,12 @@
   async function saveToCrm(payload) {
     const endpoint = form.dataset.crmEndpoint.trim();
     if (!endpoint) return { configured: false };
-
-    await fetch(endpoint, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify(payload)
-    });
+    if (payload.website) return { configured: true };
+    // Only safe contact fields go to Make/Brevo (no employer or other application details).
+    await fetch(endpoint, { method: "POST", keepalive: true, headers: { "Content-Type": "application/json" }, body: JSON.stringify({
+      formType: "nurse_loans", fullName: payload.name || "", email: payload.email || "", phone: payload.phone || "",
+      jobTitle: payload.jobTitle || "", marketingConsent: payload.marketingConsent === "Yes", page: window.location.href
+    }) });
     return { configured: true };
   }
 

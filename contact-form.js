@@ -15,6 +15,13 @@
       const response = await fetch("https://api.web3forms.com/submit", { method: "POST", body: new FormData(form) });
       const result = await response.json();
       if (!result.success) throw new Error(result.message || "Submission failed");
+      try {
+        const data = new FormData(form);
+        if (!data.get("botcheck")) await fetch("https://hook.eu1.make.com/svzk1tbqk1uluw57neden62f1eomrruz", { method: "POST", keepalive: true, headers: { "Content-Type": "application/json" }, body: JSON.stringify({
+          formType: "contact_enquiry", fullName: data.get("name") || "", email: data.get("email") || "", phone: data.get("phone") || "",
+          loanType: data.get("loan-type") || "", marketingConsent: data.get("marketing-consent") === "Yes", page: window.location.href
+        }) });
+      } catch (makeError) { console.error("Follow-up copy failed; enquiry was sent:", makeError); }
       window.location.href = "thank-you";
     } catch (error) {
       console.error("Enquiry submission error:", error);

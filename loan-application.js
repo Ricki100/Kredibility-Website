@@ -118,6 +118,14 @@
       const result = await response.json();
       if (!response.ok || !result.success) throw new Error(result.message || "Submission failed");
 
+      try {
+        // Safe copy for follow-up emails: name and contact details only, never bank, EC or next-of-kin details.
+        await fetch("https://hook.eu1.make.com/svzk1tbqk1uluw57neden62f1eomrruz", { method: "POST", keepalive: true, headers: { "Content-Type": "application/json" }, body: JSON.stringify({
+          formType: "loan_application", fullName: fieldValue("full-name", " ").trim(), email: fieldValue("email", " ").trim(), phone: fieldValue("phone", " ").trim(),
+          marketingConsent: !!(form.querySelector('[name="marketing-consent"]') || {}).checked, page: window.location.href
+        }) });
+      } catch (makeError) { console.error("Follow-up copy failed; application was saved:", makeError); }
+
       const choices = window.KredibilityConsent && window.KredibilityConsent.get();
       if (choices && choices.advertising && typeof window.fbq === "function") window.fbq("track", "Lead");
       if (choices && choices.analytics && typeof window.gtag === "function") window.gtag("event", "generate_lead", { method: "whatsapp_loan_application" });
