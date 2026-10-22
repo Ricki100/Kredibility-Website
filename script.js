@@ -33,6 +33,7 @@ function renderFooter() {
     ["Leadership", "leadership"],
     ["Governance", "governance"],
     ["News", "news"],
+    ["Loan Guides", "guides"],
   ];
   const support = [
     ["FAQ", "faq"],

@@ -3718,3 +3718,14 @@ p.field-hint {
   min-width: 0;
   line-height: 1.5;
 }
+
+/* Loan guides (added 22 Oct 2026) */
+.guide-page .rich-text { max-width: 72ch; }
+.guide-page .guide-meta { color: rgba(22, 16, 17, 0.6); font-size: 0.9rem; margin-bottom: 1.5rem; }
+.guide-page ul, .guide-page ol { margin: 0 0 1.2rem; padding-left: 1.3rem; color: rgba(22, 16, 17, 0.78); }
+.guide-page li { margin-bottom: 0.45rem; line-height: 1.65; }
+.guide-page li::marker { color: var(--magenta); }
+.guide-page .guide-table { margin: 1rem 0 1.6rem; }
+.guide-page .guide-table th { width: auto; background: var(--rose); border-top: 0; text-align: start; }
+.guide-page .faq-list { margin: 0.5rem 0 1.5rem; }
+.guide-page .guide-note { font-size: 0.88rem; color: rgba(22, 16, 17, 0.6); border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 2rem; }
