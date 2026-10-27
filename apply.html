@@ -16,7 +16,7 @@
   <meta property="og:description" content="Apply for a payroll, SME, emergency or asset-backed loan online. RBZ-licensed. Fast approval. No hidden fees. Start your Kredibility Finance application now.">
   <meta property="og:image" content="assets/kredibility-logo-photo.jpeg">
   <meta name="theme-color" content="#B5135A">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261027">
   <script src="consent-manager.js" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FinancialService","name":"Kredibility Finance (Private) Limited","alternateName":"Kredibility Microfinance","url":"https://www.kredibilityfinance.co.zw","logo":"https://www.kredibilityfinance.co.zw/assets/kredibility-logo-magenta.jpeg","description":"RBZ-licensed microfinance institution in Zimbabwe offering payroll-backed personal loans, SME financing, emergency loans and asset-backed credit.","address":{"@type":"PostalAddress","streetAddress":"Club Chambers, 11th Floor, Corner Third and Nelson Mandela Avenue","addressLocality":"Harare","addressCountry":"ZW"},"telephone":"+263781325844","email":"admin@kredibilityfinance.co.zw","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"09:00","closes":"13:00"}],"areaServed":"Zimbabwe","regulatoryStatus":"Reserve Bank of Zimbabwe Licensed Microfinance Institution"}</script>
 </head><body>
@@ -51,7 +51,7 @@
 <section class="section apply-section">
   <div class="apply-layout">
     <div class="apply-copy">
-      <h2 class="reveal">One form. Clear next steps.</h2>
+      <h2 class="reveal">Three short steps. Clear next steps.</h2>
       <p class="reveal">After submission, the team reviews your details, contacts you to confirm documents and schedules the affordability assessment.</p>
       <div class="apply-notes reveal">
         <span>&#10003; 24-hour payroll decisions</span>
@@ -76,11 +76,35 @@
 
       <p class="form-note wide"><strong>Complete your application once.</strong> We first record it securely through Web3Forms and email, then open WhatsApp with the same details ready to send to Kredibility.</p>
 
+      <div class="form-progress wide" data-form-progress hidden>
+        <p class="form-progress-label"><span data-progress-count>Step 1 of 3</span> &middot; <strong data-progress-title>Your loan</strong></p>
+        <ol class="form-progress-steps" aria-hidden="true"><li class="is-active">Your loan</li><li>Home &amp; work</li><li>Bank &amp; family</li></ol>
+      </div>
+
+      <div class="form-step wide" data-step="1" data-step-title="Your loan">
       <fieldset class="form-section wide">
-        <legend>Personal details</legend>
+        <legend>Your loan</legend>
+        <div class="form-section-grid">
+          <label>Loan amount (USD) <input name="loan-amount" inputmode="decimal" required maxlength="20" placeholder="e.g. $500.00" data-currency></label>
+          <label>Preferred instalment (USD) <input name="preferred-instalment" inputmode="decimal" required maxlength="20" placeholder="e.g. $100.00" data-currency></label>
+          <label>Number of months <input name="number-of-months" type="number" required min="1" max="6" step="1" inputmode="numeric" placeholder="1–6"></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section wide">
+        <legend>Your contact details</legend>
         <div class="form-section-grid">
           <label>Full name <input name="full-name" autocomplete="name" required maxlength="120" placeholder="e.g. Tendai Moyo"></label>
           <label>Phone or WhatsApp number <input name="phone" autocomplete="tel" required inputmode="tel" maxlength="20" placeholder="+263 78 000 0000" data-phone></label>
+          <label>Email address (optional) <input name="email" type="email" autocomplete="email" maxlength="160" placeholder="your@email.com"></label>
+        </div>
+      </fieldset>
+      </div>
+
+      <div class="form-step wide" data-step="2" data-step-title="Home &amp; work">
+      <fieldset class="form-section wide">
+        <legend>Home details</legend>
+        <div class="form-section-grid">
           <label class="wide">Physical home address <textarea name="home-address" autocomplete="street-address" required rows="2" maxlength="240" placeholder="House number, street, suburb and town"></textarea></label>
           <label>Marital status
             <select name="marital-status" id="marital-status" required>
@@ -90,10 +114,6 @@
           </label>
           <label>Years at this address <input name="years-at-address" type="number" required min="0" max="80" step="1" inputmode="numeric" placeholder="e.g. 4"></label>
           <label>Number of dependants <input name="number-of-dependants" type="number" required min="0" max="30" step="1" inputmode="numeric" placeholder="e.g. 2"></label>
-          <label>Email address (optional) <input name="email" type="email" autocomplete="email" maxlength="160" placeholder="your@email.com"></label>
-          <label>Bank name <input name="bank-name" autocomplete="organization" required maxlength="100" placeholder="e.g. CBZ Bank"></label>
-          <label>Bank branch <input name="bank-branch" required maxlength="100" placeholder="e.g. Samora Machel branch"></label>
-          <label>Bank account number <input name="bank-account-number" required inputmode="numeric" maxlength="34" autocomplete="off" placeholder="Enter account number"></label>
         </div>
       </fieldset>
 
@@ -104,6 +124,17 @@
           <label>Work contact number <input name="work-contact-number" autocomplete="tel" required inputmode="tel" maxlength="20" placeholder="+263 24 …" data-phone></label>
           <label class="wide">Work address <textarea name="work-address" required rows="2" maxlength="240" placeholder="Building, street and town"></textarea></label>
           <label>EC number <input name="ec-number" required maxlength="40" autocomplete="off" placeholder="Enter EC number"></label>
+        </div>
+      </fieldset>
+      </div>
+
+      <div class="form-step wide" data-step="3" data-step-title="Bank &amp; family">
+      <fieldset class="form-section wide">
+        <legend>Bank details</legend>
+        <div class="form-section-grid">
+          <label>Bank name <input name="bank-name" autocomplete="organization" required maxlength="100" placeholder="e.g. CBZ Bank"></label>
+          <label>Bank branch <input name="bank-branch" required maxlength="100" placeholder="e.g. Samora Machel branch"></label>
+          <label>Bank account number <input name="bank-account-number" required inputmode="numeric" maxlength="34" autocomplete="off" placeholder="Enter account number"></label>
         </div>
       </fieldset>
 
@@ -129,15 +160,6 @@
         </div>
       </fieldset>
 
-      <fieldset class="form-section wide">
-        <legend>Product details</legend>
-        <div class="form-section-grid">
-          <label>Loan amount (USD) <input name="loan-amount" inputmode="decimal" required maxlength="20" placeholder="e.g. $500.00" data-currency></label>
-          <label>Preferred instalment (USD) <input name="preferred-instalment" inputmode="decimal" required maxlength="20" placeholder="e.g. $100.00" data-currency></label>
-          <label>Number of months <input name="number-of-months" type="number" required min="1" max="6" step="1" inputmode="numeric" placeholder="1–6"></label>
-        </div>
-      </fieldset>
-
       <aside class="requirements-card wide" aria-labelledby="requirements-heading">
         <h3 id="requirements-heading">Have these clear pictures ready for WhatsApp</h3>
         <ol>
@@ -158,6 +180,7 @@
       <input type="hidden" name="privacy-notice-version" value="2026-09-17">
       <button class="button primary wide" type="submit" data-submit-button>Save application &amp; open WhatsApp</button>
       <p class="form-alert wide" data-application-status role="status" aria-live="polite"></p>
+      </div>
       <p class="form-note wide">Read our <a href="privacy-policy">Privacy Policy</a>, <a href="cookie-policy">Cookie Policy</a> and <a href="terms">Terms &amp; Conditions</a>. Privacy questions: <a href="mailto:admin@kredibilityfinance.co.zw">admin@kredibilityfinance.co.zw</a>.</p>
     </form>
   </div>
@@ -249,6 +272,6 @@
 </a>
 <script src="script.js" defer></script>
 <script src="sensitive-input-guard.js" defer></script>
-<script src="loan-application.js" defer></script>
+<script src="loan-application.js?v=20261027" defer></script>
 </body>
 </html>

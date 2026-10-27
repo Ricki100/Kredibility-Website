@@ -9,6 +9,10 @@
   const consentRecorded = document.getElementById("consent-recorded");
   const maritalStatus = document.getElementById("marital-status");
   const spouseFields = Array.from(form.querySelectorAll("[data-spouse-field]"));
+  const spouseSection = document.getElementById("spouse-section");
+  const steps = Array.from(form.querySelectorAll(".form-step"));
+  const progress = form.querySelector("[data-form-progress]");
+  let currentStep = 0;
   const whatsappNumber = "263781325844";
 
   function setStatus(message, type) {
@@ -44,11 +48,96 @@
   function updateSpouseRequirements() {
     const isMarried = maritalStatus && maritalStatus.value === "Married";
     spouseFields.forEach(function (field) { field.required = isMarried; });
+    // Only married applicants see the spouse section.
+    if (spouseSection) spouseSection.hidden = !isMarried;
   }
 
   if (maritalStatus) {
     maritalStatus.addEventListener("change", updateSpouseRequirements);
     updateSpouseRequirements();
+  }
+
+  // ---- 3-step layout. Without JavaScript every step shows as one long form. ----
+  function trackStep(step) {
+    const choices = window.KredibilityConsent && window.KredibilityConsent.get();
+    if (choices && choices.analytics && typeof window.gtag === "function") window.gtag("event", "loan_application_step", { step: step });
+  }
+
+  function stepFields(step) {
+    return Array.from(step.querySelectorAll("input, select, textarea")).filter(function (field) {
+      return field.type !== "hidden" && field.name !== "botcheck" && !field.closest("[hidden]");
+    });
+  }
+
+  function validateStep(index) {
+    const fields = stepFields(steps[index]);
+    for (let i = 0; i < fields.length; i++) {
+      if (!fields[i].checkValidity()) { fields[i].reportValidity(); return false; }
+    }
+    return true;
+  }
+
+  function showStep(index, scroll) {
+    currentStep = index;
+    steps.forEach(function (step, i) { step.classList.toggle("is-current", i === index); });
+    if (progress) {
+      const count = progress.querySelector("[data-progress-count]");
+      const title = progress.querySelector("[data-progress-title]");
+      if (count) count.textContent = "Step " + (index + 1) + " of " + steps.length;
+      if (title) title.innerHTML = steps[index].getAttribute("data-step-title");
+      progress.querySelectorAll(".form-progress-steps li").forEach(function (li, i) {
+        li.classList.toggle("is-active", i === index);
+        li.classList.toggle("is-done", i < index);
+      });
+    }
+    if (scroll) {
+      const header = document.querySelector(".site-header, header");
+      const offset = (header ? header.offsetHeight : 76) + 16;
+      window.scrollTo({ top: form.getBoundingClientRect().top + window.pageYOffset - offset, behavior: "smooth" });
+    }
+  }
+
+  if (steps.length > 1) {
+    form.classList.add("is-stepped");
+    if (progress) progress.hidden = false;
+    steps.forEach(function (step, i) {
+      const last = i === steps.length - 1;
+      const nav = document.createElement("div");
+      nav.className = "form-step-nav wide";
+      if (i > 0) {
+        const back = document.createElement("button");
+        back.type = "button";
+        back.className = "form-back";
+        back.textContent = "\u2190 Back to step " + i;
+        back.addEventListener("click", function () { showStep(i - 1, true); });
+        nav.appendChild(back);
+      }
+      if (!last) {
+        const next = document.createElement("button");
+        next.type = "button";
+        next.className = "button primary";
+        next.innerHTML = "Continue to step " + (i + 2) + ": " + steps[i + 1].getAttribute("data-step-title") + " &rarr;";
+        next.addEventListener("click", function () {
+          updateSpouseRequirements();
+          if (!validateStep(i)) return;
+          trackStep(i + 2);
+          showStep(i + 1, true);
+        });
+        nav.appendChild(next);
+        step.appendChild(nav);
+      } else {
+        step.insertBefore(nav, step.firstChild);
+      }
+    });
+    // Enter in a text box on steps 1-2 moves on instead of submitting the whole form.
+    form.addEventListener("keydown", function (event) {
+      if (event.key !== "Enter" || event.target.tagName === "TEXTAREA" || currentStep === steps.length - 1) return;
+      if (!event.target.closest(".form-step")) return;
+      event.preventDefault();
+      const next = steps[currentStep].querySelector(".form-step-nav .button.primary");
+      if (next) next.click();
+    });
+    showStep(0, false);
   }
 
   function stampConsent() {
@@ -107,7 +196,15 @@
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
     updateSpouseRequirements();
-    if (!form.reportValidity()) return;
+    const firstInvalid = Array.from(form.elements).find(function (field) {
+      return field.willValidate && !field.closest("[hidden]") && !field.checkValidity();
+    });
+    if (firstInvalid) {
+      const step = firstInvalid.closest(".form-step");
+      if (step && steps.length > 1) showStep(steps.indexOf(step), true);
+      firstInvalid.reportValidity();
+      return;
+    }
     if (!consentRecorded.value) stampConsent();
     submitButton.disabled = true;
     submitButton.textContent = "Saving application…";

@@ -3729,3 +3729,104 @@ p.field-hint {
 .guide-page .guide-table th { width: auto; background: var(--rose); border-top: 0; text-align: start; }
 .guide-page .faq-list { margin: 0.5rem 0 1.5rem; }
 .guide-page .guide-note { font-size: 0.88rem; color: rgba(22, 16, 17, 0.6); border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 2rem; }
+
+/* Apply form: 3-step layout (27 Oct 2026). Without JavaScript all steps show as one form. */
+.application-form .form-step {
+  display: grid;
+  grid-template-columns: inherit;
+  gap: inherit;
+  min-width: 0;
+}
+
+.application-form.is-stepped .form-step:not(.is-current) {
+  display: none;
+}
+
+.application-form .form-progress {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.application-form .form-progress-label {
+  margin: 0;
+  color: rgba(22, 16, 17, 0.62);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.application-form .form-progress-label strong {
+  color: var(--magenta);
+}
+
+.application-form .form-progress-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: fstep;
+}
+
+.application-form .form-progress-steps li {
+  counter-increment: fstep;
+  padding-top: 0.55rem;
+  border-top: 4px solid rgba(181, 19, 90, 0.16);
+  color: rgba(22, 16, 17, 0.45);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.application-form .form-progress-steps li::before {
+  content: counter(fstep) ". ";
+}
+
+.application-form .form-progress-steps li.is-done,
+.application-form .form-progress-steps li.is-active {
+  border-top-color: var(--magenta);
+  color: var(--ink);
+}
+
+.application-form .form-step-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.application-form .form-step-nav .button {
+  min-height: 44px;
+  padding: 0.75rem 1.4rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.application-form .form-step-nav .button.primary {
+  margin-left: auto;
+}
+
+.application-form .form-step-nav .button.ghost {
+  color: var(--magenta);
+  border-color: rgba(181, 19, 90, 0.4);
+  background: transparent;
+}
+
+.application-form .form-back {
+  justify-self: start;
+  padding: 0.4rem 0;
+  border: 0;
+  background: none;
+  color: var(--magenta);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .application-form .form-step-nav .button.primary {
+    width: 100%;
+  }
+}
