@@ -57,7 +57,7 @@
     updateSpouseRequirements();
   }
 
-  // ---- 3-step layout. Without JavaScript every step shows as one long form. ----
+  // ---- Step-by-step layout. Without JavaScript every step shows as one long form. ----
   function trackStep(step) {
     const choices = window.KredibilityConsent && window.KredibilityConsent.get();
     if (choices && choices.analytics && typeof window.gtag === "function") window.gtag("event", "loan_application_step", { step: step });

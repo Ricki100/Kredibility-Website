@@ -3730,7 +3730,7 @@ p.field-hint {
 .guide-page .faq-list { margin: 0.5rem 0 1.5rem; }
 .guide-page .guide-note { font-size: 0.88rem; color: rgba(22, 16, 17, 0.6); border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 2rem; }
 
-/* Apply form: 3-step layout (27 Oct 2026). Without JavaScript all steps show as one form. */
+/* Apply form: 4-step layout (27 Oct 2026). Without JavaScript all steps show as one form. */
 .application-form .form-step {
   display: grid;
   grid-template-columns: inherit;
@@ -3760,7 +3760,7 @@ p.field-hint {
 
 .application-form .form-progress-steps {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 0.4rem;
   margin: 0;
   padding: 0;
