@@ -3832,3 +3832,28 @@ p.field-hint {
     width: 100%;
   }
 }
+
+/* Apply form: what to have ready + WhatsApp way out on each step (Nov 2026) */
+.application-form .form-checklist {
+  padding: 1rem 1.1rem;
+  border-left: 4px solid var(--magenta);
+  border-radius: 8px;
+  background: rgba(181, 19, 90, 0.05);
+  font-size: 0.9rem;
+}
+
+.application-form .form-checklist p { margin: 0; }
+.application-form .form-checklist ul { margin: 0.5rem 0 0.6rem; padding-left: 1.2rem; }
+.application-form .form-checklist li { margin: 0.15rem 0; }
+
+.application-form .form-whatsapp-fallback {
+  order: 3;
+  flex-basis: 100%;
+  color: #128c4a;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.trust-link { color: inherit; text-decoration: underline; text-underline-offset: 3px; }

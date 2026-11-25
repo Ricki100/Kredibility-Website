@@ -97,6 +97,14 @@
     }
   }
 
+  function fallbackLink(index) {
+    const amount = fieldValue("loan-amount", "");
+    const months = fieldValue("number-of-months", "");
+    let text = "Hi Kredibility, I started a loan application on your website (step " + (index + 1) + " of " + steps.length + ") and would like to finish it on WhatsApp.";
+    if (amount) text += " Loan amount: " + amount + (months ? " over " + months + " month" + (months === "1" ? "" : "s") : "") + ".";
+    return "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(text);
+  }
+
   if (steps.length > 1) {
     form.classList.add("is-stepped");
     if (progress) progress.hidden = false;
@@ -112,6 +120,16 @@
         back.addEventListener("click", function () { showStep(i - 1, true); });
         nav.appendChild(back);
       }
+      // A way out on every step: continue on WhatsApp with only the loan amount and term, never personal details.
+      const help = document.createElement("a");
+      help.className = "form-whatsapp-fallback";
+      help.target = "_blank";
+      help.rel = "noopener";
+      help.textContent = "Finish on WhatsApp instead";
+      help.href = fallbackLink(i);
+      help.addEventListener("pointerdown", function () { help.href = fallbackLink(i); });
+      help.addEventListener("focus", function () { help.href = fallbackLink(i); });
+      nav.appendChild(help);
       if (!last) {
         const next = document.createElement("button");
         next.type = "button";
