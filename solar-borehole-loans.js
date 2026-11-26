@@ -70,7 +70,7 @@
     if (payload.website) return { configured: true };
     // Only safe contact fields go to Make/Brevo (no employer or other application details).
     await fetch(endpoint, { method: "POST", keepalive: true, headers: { "Content-Type": "application/json" }, body: JSON.stringify({
-      formType: "loan_application", loanType: "Solar & borehole: " + (payload.schoolLevel || ""), fullName: payload.name || "", email: payload.email || "", phone: payload.phone || "",
+      formType: "solar_borehole", loanType: payload.schoolLevel || "", fullName: payload.name || "", email: payload.email || "", phone: payload.phone || "",
       jobTitle: payload.jobTitle || "", marketingConsent: payload.marketingConsent === "Yes", page: window.location.href
     }) });
     return { configured: true };
