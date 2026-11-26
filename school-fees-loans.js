@@ -37,6 +37,7 @@
       company: formData.get("company"),
       jobTitle: formData.get("job-title"),
       schoolLevel: formData.get("school-level"),
+      currency: formData.get("currency"),
       campaign: formData.get("campaign"),
       sourcePage: formData.get("source-page"),
       consent: formData.get("lead-processing-consent"),
@@ -48,14 +49,15 @@
 
   function whatsappUrl(payload) {
     const message = [
-      "Hello Kredibility Finance, I would like to enquire about a school fees loan.",
+      "Hello Kredibility Finance, I would like to enquire about a back to school loan for the 2027 school year.",
       "",
       "Name: " + payload.name,
       "Phone: " + payload.phone,
       "Email: " + payload.email,
       "Employer / business: " + payload.company,
       "Job title: " + payload.jobTitle,
-      "School level: " + payload.schoolLevel,
+      "Loan for: " + payload.schoolLevel,
+      "Currency: " + payload.currency,
       "",
       "Please advise me on eligibility and the next steps."
     ].join("\n");
